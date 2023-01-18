@@ -1,4 +1,5 @@
 export type StackParamList = {
+  WebWorker: undefined;
   Tests: {
     title?: string;
     path?: string[];

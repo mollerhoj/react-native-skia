@@ -22,6 +22,7 @@ import {
   Vertices,
   Wallet,
   Severance,
+  WebWorker,
 } from "./Examples";
 import { CI, Tests } from "./Tests";
 import { HomeScreen } from "./Home";
@@ -31,7 +32,7 @@ import { useAssets } from "./Tests/useAssets";
 const linking = {
   config: {
     screens: {
-      Home: "",
+      WebWorker: "",
       Vertices: "vertices",
       API: "api",
       Breathe: "breathe",
@@ -102,6 +103,8 @@ const App = () => {
       <StatusBar hidden />
       <NavigationContainer linking={linking}>
         <Stack.Navigator screenOptions={{ headerLeft: HeaderLeft }}>
+          <Stack.Screen name="WebWorker" component={WebWorker} />
+
           {CI ? [E2ETests, Home] : [Home, E2ETests]}
           <Stack.Screen
             name="Vertices"
