@@ -1,3 +1,5 @@
+import { LoadSkia } from "@shopify/react-native-skia/src/web";
+
 const getOffscreenCanvas = (): Promise<{
   data: { offscreenCanvas: OffscreenCanvas };
 }> => new Promise((resolve) => addEventListener("message", resolve));
@@ -6,6 +8,7 @@ const getOffscreenCanvas = (): Promise<{
   const {
     data: { offscreenCanvas },
   } = await getOffscreenCanvas();
-
   console.log({ offscreenCanvas });
+  await LoadSkia();
+  console.log({ Skia: global.CanvasKit });
 })();
