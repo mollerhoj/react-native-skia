@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "react-native";
 import type { HeaderBackButtonProps } from "@react-navigation/elements";
 import { HeaderBackButton } from "@react-navigation/elements";
+import { FiberProvider } from "its-fine";
 
 import {
   AnimationExample,
@@ -99,7 +100,7 @@ const App = () => {
     </Stack.Screen>
   );
   return (
-    <>
+    <FiberProvider>
       <StatusBar hidden />
       <NavigationContainer linking={linking}>
         <Stack.Navigator screenOptions={{ headerLeft: HeaderLeft }}>
@@ -166,7 +167,7 @@ const App = () => {
           <Stack.Screen name="Performance" component={PerformanceDrawingTest} />
         </Stack.Navigator>
       </NavigationContainer>
-    </>
+    </FiberProvider>
   );
 };
 
